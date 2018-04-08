@@ -59,10 +59,12 @@ class App extends React.Component {
       this.props.data.loggedInUser.id !== ''
     
      localStorage.setItem('uid', this.props.data.loggedInUser.id);
+     console.log(this.props.data.loggedInUser.id);
   }
 
   _logout = () => {
     localStorage.removeItem('graphcoolToken')
+    localStorage.removeItem('uid')
     window.location.reload()
   }
 
