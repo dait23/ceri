@@ -53,10 +53,12 @@ class App extends React.Component {
   }
 
   _isLoggedIn = () => {
-    localStorage.setItem('uid', this.props.data.loggedInUser.id);
+   
     return this.props.data.loggedInUser && 
       this.props.data.loggedInUser.id && 
       this.props.data.loggedInUser.id !== ''
+    
+     localStorage.setItem('uid', this.props.data.loggedInUser.id);
   }
 
   _logout = () => {
