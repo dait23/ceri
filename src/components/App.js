@@ -58,17 +58,20 @@ class App extends React.Component {
       this.props.data.loggedInUser.id && 
       this.props.data.loggedInUser.id !== ''
 
-       localStorage.setItem('uid', this.props.data.loggedInUser.id);
+     
   }
 
   _logout = () => {
     localStorage.removeItem('graphcoolToken')
+    localStorage.removeItem('uid')
     window.location.reload()
   }
 
 
   render () {
     if (this._isLoggedIn()) {
+       localStorage.setItem('uid', this.props.data.loggedInUser.id);
+     console.log(this.props.data.loggedInUser.id);
       return this.renderLoggedIn()
     } else {
       return this.renderLoggedOut()
