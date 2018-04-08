@@ -77,7 +77,8 @@ class App extends React.Component {
     return (
       <div>
         <span>
-          Logged in as ${this.props.data.loggedInUser.id}
+          Logged in as ${this.props.data.loggedInUser.firstName} {this.props.data.loggedInUser.lastName} <br />
+          <img src={this.props.data.loggedInUser.avatar} alt="avatar"/>
         </span>
         <div className='pv3'>
           <span
@@ -117,6 +118,9 @@ const LOGGED_IN_USER = gql`
   query LoggedInUser {
     loggedInUser {
       id
+      avatar
+      firstName
+      lastName
     }
   }
 `
